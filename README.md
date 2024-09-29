@@ -31,13 +31,18 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 4. **Utilisation**
 
+- Remplacer d'abord les informations de votre base de données dans:
+
+[.env.sample](.env.sample)
+
 - Pour démarrer le projet:
 
 ```bash
    npm start
 ```
 
-- Importer la collection (postman_collection.json) dans postman pour effectuer des tests;
+- Importer la collection dans postman pour effectuer des tests :
+  [postman_collection.json](postman_collection.json)
 
 ## Endpoints API
 
@@ -47,18 +52,46 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 - URL : /recipes
 - Méthode : GET
-- Réponse:  Liste de toutes les recettes;
+- Réponse:
+
+```
+[
+  {
+    "id": 1,
+    "titre": "Recette 1",
+    "ingredients": "Ingrédients de la recette 1",
+    "type": "type 1"
+  },
+  {
+    "id": 2,
+    "titre": "Recette 2",
+    "ingredients": "Ingrédients de la recette 2",
+     "type": "type 2"
+  },
+]
+```
 
 **Récupérer une recette**
 
 - URL : /recipes/:id
 - Méthode : GET
-- Réponse:  Détails d'une recette;
+- Réponse: 
+```
+[
+  {
+    "id": 1,
+    "titre": "Recette",
+    "ingredients": "Ingrédients de la recette",
+    "type": "type"
+  },
+]
+```
 
 **Créer une nouvelle recette**
 
 - URL : /recipes
 - Méthode : POST
+
 ```
 {
     "titre": "Nouvelle Recette",
@@ -67,12 +100,14 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
     "categorie_id": 1
 }
 ```
+
 - Réponse: `"Added successfully"`;
 
   **Mettre à jour une recette**
 
 - URL : /recipes/:id
 - Méthode : PUT
+
 ```
 {
    "titre": "Recette Modifiée",
@@ -81,6 +116,7 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
    "categorie_id": 1
   }
 ```
+
 - Réponse: `"Updated successfully"`
 
   **Supprimer une recette**
@@ -95,34 +131,64 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 - URL : /categories
 - Méthode : GET
-- Réponse:  Liste de toutes les categories;
+- Réponse: 
+```
+[
+  {
+    "id": 1,
+    "titre": "categorie 1",
+    "ingredients": "Ingrédients de la categorie 1",
+    "type": "type 1"
+  },
+  {
+    "id": 2,
+    "titre": "categorie 2",
+    "ingredients": "Ingrédients de la categorie 2",
+     "type": "type 2"
+  },
+]
+```
 
 **Récupérer une catégorie**
 
 - URL : /categories/:id
 - Méthode : GET
-- Réponse:  Détails d'une catégorie;
+- Réponse: 
+```
+[
+  {
+    "id": 1,
+    "titre": "categorie",
+    "ingredients": "Ingrédients de la categorie",
+    "type": "type"
+  },
+]
+```
 
 **Créer une nouvelle categorie**
 
 - URL : /categories
 - Méthode : POST
+
 ```
 {
     "nom": "Nouvelle categorie"
 }
 ```
+
 - Réponse: `"Added successfully"`;
 
   **Mettre à jour une categorie**
 
 - URL : /categories/:id
 - Méthode : PUT
+
 ```
 {
    "nom": "categorie Modifiée"
   }
 ```
+
 - Réponse: `"Updated successfully"`
 
   **Supprimer une categorie**
@@ -137,6 +203,18 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 npm test
 ```
 
+### ESlint : correction de code
+
+```bash
+npm run lint
+```
+
+### Prettier: format de code
+
+```bash
+npm run format
+```
+
 ## Docker
 
 ### Builder l'image docker
@@ -144,6 +222,7 @@ npm test
 ```bash
 docker compose up --build
 ```
+
 ### Connexion à Mysql
 
 - Sur la ligne de commande executez pour utiliser mysql :
@@ -155,9 +234,9 @@ docker exec -it gestion_recette bash
 ```bash
 mysql -u root -p
 ```
-- Importez la collection dans Postman pour communiquez via l'URL:
-[postman_collection.json](postman_collection.json)
 
+- Importez la collection dans Postman pour communiquez via l'URL:
+  [postman_collection.json](postman_collection.json)
 
 ## Auteurs
 
