@@ -113,6 +113,59 @@ const deleteRequestValidatorCategory = [
         throw new Error("Cette catégorie n'existe pas!");
       }
       return true;
+    })
+    .custom(async (value) => {
+      const result = await Recipe.getRecipeByCategory(value);
+      if (result.length !== 0) {
+        throw new Error('Cette catégorie contient des recettes!');
+      }
+      return true;
+    }),
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+      return res
+        .status(StatusCodes.UNPROCESSABLE_ENTITY)
+        .json({ errors: errors.array() });
+    next();
+  },
+];
+
+const getRequestValidatorRecipe = [
+  param('id')
+    .not()
+    .isEmpty()
+    .withMessage('Id est obligatoire!')
+    .bail()
+    .custom(async (value) => {
+      const result = await Recipe.getId(value);
+      if (result === 0) {
+        throw new Error("Cette recette n'existe pas!");
+      }
+      return true;
+    }),
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+      return res
+        .status(StatusCodes.UNPROCESSABLE_ENTITY)
+        .json({ errors: errors.array() });
+    next();
+  },
+];
+
+const getRequestValidatorCategory = [
+  param('id')
+    .not()
+    .isEmpty()
+    .withMessage('Id est obligatoire!')
+    .bail()
+    .custom(async (value) => {
+      const result = await Category.getId(value);
+      if (result === 0) {
+        throw new Error("Cette catégorie n'existe pas!");
+      }
+      return true;
     }),
   (req, res, next) => {
     const errors = validationResult(req);
@@ -228,4 +281,6 @@ export {
   deleteRequestValidatorCategory,
   updateRequestValidatorRecipe,
   updateRequestValidatorCategory,
+  getRequestValidatorRecipe,
+  getRequestValidatorCategory,
 };

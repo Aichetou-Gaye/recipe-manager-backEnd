@@ -75,7 +75,8 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 - URL : /recipes/:id
 - Méthode : GET
-- Réponse: 
+- Réponse:
+
 ```
 [
   {
@@ -131,7 +132,8 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 - URL : /categories
 - Méthode : GET
-- Réponse: 
+- Réponse:
+
 ```
 [
   {
@@ -153,7 +155,8 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 - URL : /categories/:id
 - Méthode : GET
-- Réponse: 
+- Réponse:
+
 ```
 [
   {
