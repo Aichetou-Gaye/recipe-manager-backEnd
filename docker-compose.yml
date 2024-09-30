@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    env_file: .env
+    env_file: .env.dev
     image: mysql
     container_name: gestion_recette
     restart: always
@@ -15,7 +15,7 @@ services:
       - '3310:3306'
 
   app:
-    env_file: .env
+    env_file: .env.dev
     image: api-recette
     container_name: recette-back-end
     build: .
@@ -28,7 +28,7 @@ services:
       DB_NAME: ${DB_NAME}
       DB_PORT: ${DB_PORT}
     ports:
-      - '3020:3020'
+      - '3022:3022'
     depends_on:
       - db
 volumes:

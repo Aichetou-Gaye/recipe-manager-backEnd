@@ -1,7 +1,6 @@
 import express from 'express';
 import router from './routes/index.js';
 import bodyParser from 'body-parser';
-// import pool from './config/db.js';
 import { config } from 'dotenv';
 import cors from 'cors';
 config();
