@@ -1,26 +1,25 @@
-# Gestion Recettes API
+# Recipe Manager BackEnd
 
-Cette API permet de gérer des recettes et des catégories, en allant de leur création, lecture, mise à jour et suppression.
+Cette API est une amélioration d'une api existante et elle permet de gérer des recettes et des catégories, en allant de leur création, lecture, mise à jour et suppression.
 
 ## Prérequis
 
 - Node.js (version 14 ou supérieure)
 - MySQL (ou un autre système de gestion de base de données compatible)
 - Postman (pour tester l'API)
-- Docker (v.4.30 ou supérieure)
 
 ## Installation
 
 1. **Clonez le dépôt** :
 
 ```bash
-    git clone https://github.com/Aichetou-Gaye/gestion-recette-backEnd.git
+    git clone https://github.com/Aichetou-Gaye/recipe-manager-backEnd.git
 ```
 
 2.  **Acceder au dossier du projet**
 
 ```bash
-  cd gestion-recette-backEnd
+  cd recipe-manager-backEnd
 ```
 
 3. **Installez les dépendances**
@@ -31,9 +30,9 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 4. **Utilisation**
 
-- Remplacer d'abord les informations de votre base de données dans:
+- Importez la base de données exportée suivante [export.sql](./assets/export.sql) ;
 
-[.env.sample](.env.sample)
+- Remplacer d'abord vos informations de connexion à MySQL dans [.env.sample](.env.sample) ;
 
 - Pour démarrer le projet:
 
@@ -42,7 +41,7 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 ```
 
 - Importer la collection dans postman pour effectuer des tests :
-  [postman_collection.json](postman_collection.json)
+  [postman_collection.json](postman_collection.json) ;
 
 ## Endpoints API
 
@@ -168,6 +167,23 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 ]
 ```
 
+**Récupérer les recettes d'une catégorie**
+
+- URL : /categories/recipes/:id
+- Méthode : GET
+- Réponse:
+
+```
+[
+  {
+    "id": 1,
+    "titre": "categorie",
+    "ingredients": "Ingrédients de la categorie",
+    "type": "type"
+  },
+]
+```
+
 **Créer une nouvelle categorie**
 
 - URL : /categories
@@ -175,10 +191,9 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 ```
 {
-    "nom": "Nouvelle categorie"
+  "nom": "Nouvelle categorie"
 }
 ```
-
 - Réponse: `"Added successfully"`;
 
   **Mettre à jour une categorie**
@@ -188,8 +203,8 @@ Cette API permet de gérer des recettes et des catégories, en allant de leur cr
 
 ```
 {
-   "nom": "categorie Modifiée"
-  }
+  "nom": "categorie Modifiée"
+}
 ```
 
 - Réponse: `"Updated successfully"`
@@ -208,8 +223,14 @@ npm test
 
 ### ESlint : correction de code
 
+- Détecter les erreurs :
 ```bash
 npm run lint
+```
+
+- Corriger les erreurs :
+```bash
+npm run lint:fix
 ```
 
 ### Prettier: format de code
@@ -218,31 +239,6 @@ npm run lint
 npm run format
 ```
 
-## Docker
-
-### Builder l'image docker
-
-```bash
-docker compose up --build
-```
-
-### Connexion à Mysql
-
-- Sur la ligne de commande executez pour utiliser mysql :
-
-```bash
-docker exec -it gestion_recette bash
-```
-
-```bash
-mysql -u root -p
-```
-
-- Importez la collection dans Postman pour communiquez via l'URL:
-  [postman_collection.json](postman_collection.json)
-
-## Auteurs
+## Auteur
 
 [Aichetou Gaye](https://github.com/Aichetou-Gaye)
-
-[Mohamed Bankolé](https://github.com/medbankole97)
