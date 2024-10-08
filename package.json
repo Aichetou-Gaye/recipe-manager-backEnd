@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aichetou-Gaye/Gestion-Recettes-API.git"
+    "url": "git+https://github.com/Aichetou-Gaye/recipe-manager-backEnd.git"
   },
-  "author": "Aichetou Gaye & Med Bankolé",
+  "author": "Aichetou Gaye",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Aichetou-Gaye/Gestion-Recettes-API/issues"
+    "url": "https://github.com/Aichetou-Gaye/recipe-manager-backEnd/issues"
   },
-  "homepage": "https://github.com/Aichetou-Gaye/Gestion-Recettes-API#readme",
+  "homepage": "https://github.com/Aichetou-Gaye/recipe-manager-backEnd#readme",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
