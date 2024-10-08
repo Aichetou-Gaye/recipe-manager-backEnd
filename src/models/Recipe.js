@@ -30,7 +30,7 @@ class Recipe {
   static async getRecipeByCategory(categorie_id) {
     try {
       const connection = await pool.getConnection();
-      const result = await connection.execute(
+      const [result] = await connection.execute(
         'select titre, ingredients, type, categorie_id as categorie from recettes where categorie_id = ?',
         [categorie_id]
       );
